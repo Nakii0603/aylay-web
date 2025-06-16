@@ -23,20 +23,20 @@ export default function Carousel() {
   }, []);
 
   return (
-    <div className="relative m-auto overflow-hidden">
+    <div className="relative m-auto overflow-hidden bg-[] mb-10 flex justify-center">
       <p className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold">
         Explore the 4 Aimags of the Gobi
       </p>
       <div
         ref={containerRef}
-        className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory w-full "
+        className="flex overflow-x-auto max-w-[1300px] scroll-smooth snap-x snap-mandatory "
       >
         {images.map((src, index) => (
           <img
             key={index}
             src={src}
             alt={`Slide ${index + 1}`}
-            className="w-full h-[100vh] object-cover flex-shrink-0 snap-center"
+            className="w-full h-auto object-cover flex-shrink-0 snap-center"
           />
         ))}
       </div>
