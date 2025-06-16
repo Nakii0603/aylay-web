@@ -10,7 +10,7 @@ interface Props {
   params: Params;
 }
 
-export default function TourDetailsPage({ params }: Props) {
+export default function TourDetailsPage() {
   // Uncomment and use the tour data if available
   // const tour = tours.find((t) => t.slug === params.slug);
 
