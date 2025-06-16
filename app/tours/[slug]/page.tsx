@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { tours } from "@/data"; 
+import { tours } from "@/data";
 
 interface Params {
   slug: string;
@@ -33,7 +33,7 @@ export default function TourDetailsPage() {
     <div className="bg-[#f5e1cd] min-h-screen text-[#6b3e1d]">
       <div
         className="relative h-[400px] bg-cover bg-center"
-        style={{ backgroundImage: `url('/gobi-sand-dunes.jpg')` }}
+        style={{ backgroundImage: "url(/img4.jpg)" }}
       >
         <div className="absolute bottom-8 left-8 text-white">
           <h1 className="text-4xl font-bold">KHONGOR SAND DUNES</h1>
