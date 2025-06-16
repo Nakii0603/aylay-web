@@ -43,6 +43,7 @@ export default function Auth() {
             email: formData.email,
           }
         );
+          
         if (response.data.message === "OTP sent successfully to your email") {
           toast.success("OTP имэйл рүү амжилттай илгээгдлээ");
           setOtpSent(true);
