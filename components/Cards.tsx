@@ -18,6 +18,15 @@ export const tours = [
     description:
       "Монголын төв хэсгийн тал хээр, сэтгэл татам Цагаан элсийг үзэх аялал.",
   },
+  {
+    img: "/img6.jpg",
+    title: "Энерги, Тал хээр ба Цагаан элс",
+    days: "4 хоног",
+    price: "$500",
+    slug: "hongor-els",
+    description:
+      "Монголын төв хэсгийн тал хээр, сэтгэл татам Цагаан элсийг үзэх аялал.",
+  },
 ];
 export default function Cards() {
   return (

@@ -36,7 +36,9 @@ export default function TourDetailsPage() {
         style={{ backgroundImage: "url(/img4.jpg)" }}
       >
         <div className="absolute bottom-8 left-8 text-white">
-          <h1 className="text-4xl font-bold">KHONGOR SAND DUNES</h1>
+          <h1 className="text-4xl font-bold">
+            Байгалийн үзэсгэлэнт газруудын аялал (Говийн бүсээр) – 7 хоног
+          </h1>
           <div className="mt-4 flex gap-4">
             <button className="bg-[#a5602d] px-4 py-2 rounded text-white">
               4 DAYS
@@ -51,17 +53,21 @@ export default function TourDetailsPage() {
       <div className="max-w-4xl mx-auto py-12 px-6">
         <h2 className="text-2xl font-bold mb-4">Overview</h2>
         <p className="mb-8">
-          Touring in the Omnogovi aimag of Mongolia’s Gobi Desert: towering
-          heights up to 100 miles. Its golden sands and vibrant colors shift
-          with the winds, providing an unforgettable experience.
+          7 хоногийн турш говийн байгалийн бүх төрлийн ландшафт: хад, уул, мөсөн
+          хавцал, элс, тал Майхантай эсвэл гэр буудал хосолсон байгальд ойрхон
+          байрлах аялал Шөнийн тэнгэр, зэрлэг ан амьтан, элсэн шуурганд аялж
+          үзэх ховор туршлага.
         </p>
 
         <h2 className="text-2xl font-bold mb-4">Highlights</h2>
         <ul className="list-disc list-inside space-y-2 mb-8">
-          <li>Explore the vast Khongor Sand Dunes</li>
-          <li>Experience a camel ride across the desert</li>
-          <li>Visit a traditional nomadic family</li>
-          <li>Enjoy panoramic views from the Singing Dune</li>
+          <li>Хадан тогтоц, агуй, хадны сүг зураг, майхантай буудаллах</li>
+          <li>Уул хаданд авиралт, түүхэн агуй, зэрлэг ан амьтан үзэх</li>
+          <li> Мөсөн хавцал дундуур алхах, Говийн гурван сайхан уулс</li>
+          <li>Улаан хөрст хадан цохио, динозаврын чулуужсан яс</li>
+          <li>180 км үргэлжлэх элсэн манхан, тэмээ унах, наран мандах харах</li>
+          <li>Элсэн хээр, говийн энергийн төв</li>
+          <li> Буцах замдаа говийн тал нутгаар аялал, зураг авалт</li>
         </ul>
 
         {/* Image Carousel */}
