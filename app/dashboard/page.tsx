@@ -30,7 +30,7 @@ export default function HomePage() {
             onClick={() => router.push(`/trip/${trip.id}`)}
             className="cursor-pointer p-4 bg-white shadow rounded hover:bg-gray-200 transition"
           >
-            <img src={trip.img} alt="" />
+            <img src={trip.img} className="w-full" alt="" />
             <h2 className="text-lg font-semibold">{trip.title}</h2>
             <p className="text-sm text-gray-600">📅 {trip.date}</p>
           </div>

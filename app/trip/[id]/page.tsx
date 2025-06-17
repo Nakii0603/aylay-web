@@ -17,7 +17,6 @@ export default function TripDetailPage() {
     { name: "Батаа", paid: true, joined: true },
     { name: "Сараа", paid: true, joined: false },
     { name: "Мөнхөө", paid: false, joined: true },
-    { name: "Цогтоо", paid: true, joined: true },
   ]);
 
   const paymentPerFriend = 500_000; // Нэг хүний төлөх дүн
