@@ -43,7 +43,7 @@ export default function Auth() {
             email: formData.email,
           }
         );
-          
+
         if (response.data.message === "OTP sent successfully to your email") {
           toast.success("OTP имэйл рүү амжилттай илгээгдлээ");
           setOtpSent(true);
@@ -162,8 +162,12 @@ export default function Auth() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-4 justify-center items-center"
             >
+              <div className="flex justify-center flex-col mb-4 gap-4 w-[80px]">
+                <img src="/logo/image1.png" alt="" />
+                <img src="/logo/image2.png" alt="" />
+              </div>
               <h1 className="text-2xl flex justify-center mb-4">Бүртгүүлэх</h1>
 
               {step === 1 && (
@@ -279,8 +283,12 @@ export default function Auth() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 50 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col gap-4"
+              className="flex flex-col gap-4 justify-center items-center"
             >
+              <div className="flex justify-center flex-col mb-4 gap-4 w-[80px]">
+                <img src="/logo/image1.png" alt="" />
+                <img src="/logo/image2.png" alt="" />
+              </div>
               <h1 className="text-2xl mb-4 text-center">Нэвтрэх</h1>
 
               <input
