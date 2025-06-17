@@ -1,5 +1,6 @@
 "use client";
 
+import ClientNav from "@/components/ClientNav";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
@@ -94,6 +95,7 @@ export default function TripDetailPage() {
           </p>
         </div>
       </div>
+      <ClientNav />
     </div>
   );
 }

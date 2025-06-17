@@ -29,8 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <main className="flex-grow">{children}</main>
-        {/* Bottom navigation-г client компонентээс дуудаж харуулна */}
-        <ClientNav />
+
       </body>
     </html>
   );

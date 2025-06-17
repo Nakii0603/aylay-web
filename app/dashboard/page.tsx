@@ -1,4 +1,5 @@
 "use client";
+import ClientNav from "@/components/ClientNav";
 import { useRouter } from "next/navigation";
 
 export default function HomePage() {
@@ -35,6 +36,7 @@ export default function HomePage() {
           </div>
         ))}
       </div>
+      <ClientNav />
     </div>
   );
 }

@@ -1,14 +1,6 @@
 "use client";
-
-import { usePathname } from "next/navigation";
 import Link from "next/link";
-
 export default function ClientNav() {
-  const pathname = usePathname();
-
-  const hideBottomNav = pathname?.startsWith("/") ?? false;
-
-  if (hideBottomNav) return null;
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-md flex justify-around py-2 z-50 md:hidden">
