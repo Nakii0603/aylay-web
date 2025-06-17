@@ -122,8 +122,6 @@ export default function Auth() {
         toast.error("Имэйл эсвэл нууц үг буруу байна");
         return;
       }
-      console.log(response.data);
-
       if (response.data.message === "Login successful") {
         router.push("/dashboard");
       }
@@ -152,7 +150,7 @@ export default function Auth() {
 
       {/* Loading spinner overlay */}
       {loading && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-[#0000006f] flex justify-center items-center z-50">
           <svg
             aria-hidden="true"
             className="w-16 h-16 text-gray-200 animate-spin fill-green-500"
@@ -169,7 +167,6 @@ export default function Auth() {
               fill="currentFill"
             />
           </svg>
-          <span className="sr-only">Loading...</span>
         </div>
       )}
 
@@ -227,7 +224,7 @@ export default function Auth() {
                     onChange={(e) => handleOnChange("otp", e.target.value)}
                     className="w-[300px] border border-black h-[40px] rounded-md px-2"
                   />
-                  <div className="flex justify-between mt-4">
+                  <div className="flex justify-between gap-5 mt-4">
                     <button
                       type="button"
                       onClick={handlePrevStep}
@@ -264,7 +261,7 @@ export default function Auth() {
                     }
                     className="w-[300px] border border-black h-[40px] rounded-md px-2"
                   />
-                  <div className="flex justify-between mt-4">
+                  <div className="flex justify-between gap-5 mt-4">
                     <button
                       type="button"
                       onClick={handlePrevStep}
