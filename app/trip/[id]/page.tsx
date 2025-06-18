@@ -15,19 +15,19 @@ export default function TripDetailPage() {
 
   const [friends] = useState<Friend[]>([
     { name: "Батаа", paid: true, joined: true },
-    { name: "Сараа", paid: true, joined: false },
-    { name: "Мөнхөө", paid: false, joined: true },
+    { name: "Сараа", paid: true, joined: true },
+    { name: "Мөнхөө", paid: true, joined: true },
+    { name: "Нараа", paid: false, joined: false },
   ]);
 
-  const paymentPerFriend = 500_000; // Нэг хүний төлөх дүн
+  const paymentPerFriend = 500_000;
   const numberOfFriends = friends.length;
 
-  // Нийт цугласан мөнгө
-  const totalCollected = friends
-    .filter((friend) => friend.paid)
-    .reduce((sum) => sum + paymentPerFriend, 0);
+  // Нийт төлсөн мөнгө
+  const totalCollected =
+    friends.filter((friend) => friend.paid).length * paymentPerFriend;
 
-  // Жишээ банкны хүү (жилийн 5%)
+  // Хүүгийн тооцоо (жилийн 5%, 30 хоног)
   const interestRateAnnual = 0.05;
   const days = 30;
   const dailyRate = interestRateAnnual / 365;
@@ -38,8 +38,11 @@ export default function TripDetailPage() {
 
   const totalWithInterest = calculateInterest(totalCollected);
 
+  // Торгууль бодох: төлсөн ч яваагүй - 50К, төлөөгүй & яваагүй - 25К
   const getPenalty = (friend: Friend) => {
-    return friend.paid && !friend.joined ? 50_000 : 0;
+    if (!friend.joined && friend.paid) return 50_000;
+    if (!friend.joined && !friend.paid) return 25_0000;
+    return 0;
   };
 
   const totalPenalties = friends.reduce(
