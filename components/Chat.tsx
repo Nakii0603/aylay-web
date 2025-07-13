@@ -9,26 +9,35 @@ export default function Chat() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
   const sendMessage = async () => {
     if (!input.trim()) return;
+
     const newMessages = [...messages, { role: "user", content: input }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/`, {
+      const res = await fetch(`${API_URL}/api/chat/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }),
       });
 
-      console.log(res);
+      if (!res.ok) {
+        throw new Error(`Алдаа: ${res.status}`);
+      }
 
       const data = await res.json();
       setMessages([...newMessages, { role: "assistant", content: data.reply }]);
     } catch (error) {
       console.error("Алдаа:", error);
+      setMessages([
+        ...newMessages,
+        { role: "assistant", content: "Алдаа гарлаа. Дахин оролдоно уу." },
+      ]);
     } finally {
       setLoading(false);
     }
