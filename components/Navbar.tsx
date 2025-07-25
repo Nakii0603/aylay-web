@@ -67,7 +67,7 @@ export default function Navbar() {
               <li key={label} className="mx-4">
                 <button
                   onClick={() => handleNavigation(path)}
-                  className="text-lg font-semibold text-gray-800 cursor-pointer hover:text-white transition-colors bg-transparent border-none"
+                  className="text-lg font-semibold cursor-pointer text-[#013632] transition-colors bg-transparent border-none hover:underline"
                 >
                   {label}
                 </button>
@@ -111,7 +111,7 @@ export default function Navbar() {
             <li key={label} className="my-2 w-full text-center">
               <button
                 onClick={() => handleNavigation(path)}
-                className="text-lg font-medium text-gray-800 cursor-pointer hover:text-white transition-colors bg-transparent border-none w-full"
+                className="text-lg font-medium text-[#013632] cursor-pointer hover:text-[#023632] transition-colors bg-transparent border-none w-full"
               >
                 {label}
               </button>

@@ -1,5 +1,6 @@
 import Auth from "@/components/Auth";
 import Carousel from "@/components/Carousel";
+import Footer from "@/components/Footer";
 import Highlight from "@/components/Highlight";
 import Info from "@/components/Info";
 import Navbar from "@/components/Navbar";
@@ -13,6 +14,7 @@ export default function page() {
         <Carousel />
         <Info />
         <Highlight />
+        <Footer />
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const aimags = [
 
 export default function Highlight() {
   return (
-    <div className="flex flex-col items-center justify-center px-4">
+    <div className="flex flex-col items-center justify-center px-4 mb-8">
       <p className="text-[32px] md:text-[48px] mt-4 text-center font-semibold text-[#013632]">
         ОНЦЛОГ АЙМГУУД
       </p>
