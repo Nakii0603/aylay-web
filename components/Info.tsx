@@ -5,7 +5,7 @@ export default function Info() {
   return (
     <div className="flex flex-col items-center justify-centen">
       <div className="flex justify-evenly flex-wrap gap-4 mt-5 p-3 items-center w-[90%]">
-        <div className="text-white bg-[#013632] px-8 py-6 max-w-[450px] rounded-[10px]">
+        <div className="text-white bg-[#013632] px-8 py-6 max-sm:px-4 max-sm:py-2 max-w-[450px] rounded-[10px]">
           <h1 className="text-[36px] p-2 max-md:text-[24px] font-semibold">
             Товч танилцуулга
           </h1>

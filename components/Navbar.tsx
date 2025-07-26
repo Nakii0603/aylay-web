@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { div } from "framer-motion/client";
 
 export default function Navbar() {
   const router = useRouter();
@@ -24,15 +23,15 @@ export default function Navbar() {
       <nav className="w-full flex flex-col items-center ">
         <div className="bg-[#013632] w-full flex justify-center">
           <div className="max-w-[1980px] w-full flex justify-end items-center">
-            <div className="flex items-center gap-6 max-md:gap-2 h-[50px] mr-8 max-md:mr-2">
+            <div className="flex items-center gap-6 max-sm:gap-3 h-[50px] max-sm:h-[35px] mr-8 max-md:mr-2">
               <img
                 onClick={fb}
-                className=" cursor-pointer w-[16px] h-[26px]"
+                className=" cursor-pointer w-[16px] h-[26px] max-sm:h-[18px] max-sm:w-[11px]"
                 src="/logo/fb.png"
                 alt=""
               />
               <img
-                className="w-[26px] cursor-pointer h-[26px]"
+                className="w-[26px] cursor-pointer h-[26px] max-sm:h-[18px] max-sm:w-[18px]"
                 src="/logo/ig.png"
                 alt=""
               />
@@ -42,7 +41,7 @@ export default function Navbar() {
                 alt=""
               />
               <img
-                className=" w-[26px] cursor-pointer h-[26px]"
+                className=" w-[26px] cursor-pointer h-[26px] max-sm:h-[18px] max-sm:w-[18px]"
                 src="/logo/phone.png"
                 alt=""
               />
@@ -126,6 +125,7 @@ export default function Navbar() {
               { label: "Тухай", path: "/" },
               { label: "Аялал", path: "/" },
               { label: "Газрын зураг", path: "" },
+              { label: "Нэвтрэх", path: "#" },
             ].map(({ label, path }) => (
               <li key={label} className="my-4 w-full">
                 <button
