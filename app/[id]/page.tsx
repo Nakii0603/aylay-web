@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useState, use } from "react"; // use-г импортлоно
-import { aimags } from "@/Data";
+import { aimags } from "@/app/Data";
 
 export default function AimagDetail({
   params,

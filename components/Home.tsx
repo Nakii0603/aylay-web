@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { aimags, allSurveys } from "@/Data";
+import { aimags, allSurveys } from "@/app/Data";
 
 const TERMS_KEY = "aylay_terms_accepted";
 
