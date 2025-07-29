@@ -1,6 +1,6 @@
 // app/tours/page.tsx
 import Link from "next/link";
-import { tours } from "@/data";
+import { tours } from "@/Data";
 import Navbar from "@/components/Navbar";
 
 export default function ToursPage() {

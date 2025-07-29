@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { tours } from "@/data";
+import { tours } from "@/Data";
 
 interface Params {
   slug: string;

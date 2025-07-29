@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const SERVER_URI = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 export default function Chat() {
   const [messages, setMessages] = useState([
@@ -8,32 +10,30 @@ export default function Chat() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const sendMessage = async () => {
-    if (!input.trim()) return;
+    const trimmedInput = input.trim();
+    if (!trimmedInput) return;
 
-    const newMessages = [...messages, { role: "user", content: input }];
+    const newMessages = [...messages, { role: "user", content: trimmedInput }];
     setMessages(newMessages);
     setInput("");
     setLoading(true);
 
     try {
-      const res = await fetch(`${API_URL}/api/chat/`, {
+      const res = await fetch(`${SERVER_URI}/api/chatMessage/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
+        body: JSON.stringify({ message: trimmedInput }),
       });
 
-      if (!res.ok) {
-        throw new Error(`Алдаа: ${res.status}`);
-      }
-
+      if (!res.ok) throw new Error(`Error: ${res.status}`);
       const data = await res.json();
+
       setMessages([...newMessages, { role: "assistant", content: data.reply }]);
     } catch (error) {
-      console.error("Алдаа:", error);
+      console.error("Error:", error);
       setMessages([
         ...newMessages,
         { role: "assistant", content: "Алдаа гарлаа. Дахин оролдоно уу." },
@@ -43,35 +43,55 @@ export default function Chat() {
     }
   };
 
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 p-4 flex flex-col items-center">
-      <div className="w-full max-w-2xl bg-white rounded shadow p-4 space-y-4 h-[80vh] overflow-y-auto">
-        {messages.map((msg, i) => (
+    <div className="flex flex-col h-[calc(100vh-80px)] bg-gray-100">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3">
+        {messages.map((msg, index) => (
           <div
-            key={i}
-            className={`p-2 rounded ${
+            key={index}
+            className={`w-fit p-3 rounded-xl shadow-sm ${
               msg.role === "user"
-                ? "text-right bg-blue-100"
-                : "text-left bg-gray-200"
+                ? "bg-blue-500 text-white self-end ml-auto"
+                : "bg-gray-300 text-black self-start mr-auto"
             }`}
           >
             {msg.content}
           </div>
         ))}
-        {loading && <div className="text-gray-500 italic">Бодож байна...</div>}
+
+        {loading && (
+          <div className="text-gray-500 text-sm">Хариу илгээж байна...</div>
+        )}
       </div>
 
-      <div className="mt-4 w-full max-w-2xl flex">
+      <div className="flex items-center p-4 border-t bg-white">
         <input
+          className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          type="text"
+          placeholder="Асуух зүйлээ бичнэ үү..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          className="flex-1 border rounded-l px-4 py-2"
-          placeholder="Асуух зүйлээ бичнэ үү..."
+          onKeyDown={handleKeyDown}
+          disabled={loading}
         />
         <button
+          className="ml-3 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:bg-blue-300"
           onClick={sendMessage}
-          className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600"
+          disabled={loading}
         >
           Илгээх
         </button>

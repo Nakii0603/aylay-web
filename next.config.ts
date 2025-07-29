@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: [
+      "www.montsame.mn",
+      "www.mnb.mn",
+      "mapio.net",
+      "mecc.mn",
+      "www.zindaa.mn",
+      "montsame.mn",
+      "mongoliantravel.weebly.com",
+      // ... бусад таны зураг байгаа домэйнүүдийг энд нэмнэ
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
